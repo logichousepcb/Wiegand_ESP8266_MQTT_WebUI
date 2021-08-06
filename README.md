@@ -15,7 +15,7 @@ ESC - will clear the code buffer
 
 Defaults:
 
-1 2 3 4 ENT - default admin code
+1 2 3 4 ENT - default admin code **this can be changed by the web ui but the admin code is always active
 
 RELAY GPIO14
 D0    GPIO12 - White wire
