@@ -12,3 +12,5 @@ Commands:
 
 ESC - will clear the code buffer
 
+I have used a library from GerLech for the web UI.
+https://github.com/GerLech/WebConfig
