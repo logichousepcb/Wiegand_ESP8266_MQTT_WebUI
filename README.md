@@ -29,7 +29,7 @@ BEEP  GPIO4  - Yellow wire - D2 on Womos
 
 
 LED Indications:
-
+ 
 4 flashes = relay triggered
 5 flashes = WEB UI activated
 2 flashes = WEB UI deactivated
