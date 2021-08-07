@@ -42,6 +42,7 @@ SSID-############ - returns name of network SSID trying to connect to
 WEBUI-ON  - returns is the web user interface is active
 WEBUI-OFF - returns if the web user interface is turned off
 UIIP-__.__.__.__ returs the IP for the UI
+RECV-__________ returns what device recieved via serial communication 
 CODE-###########-nn-v  ## is the code entered (up to 11 digits)
                        nn is the user number
                        v  G (granted if the code is code and user has access on) 
