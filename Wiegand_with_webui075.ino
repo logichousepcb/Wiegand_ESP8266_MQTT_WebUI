@@ -31,7 +31,7 @@ String bufactive;
 unsigned char codebuf[26];
 int serbuf[32];
 int seradd;
-char cardstring[26];
+//char cardstring[26];
 char myaddbuf[2];
 int keycount;
 int incomingByte = 0;
@@ -52,41 +52,6 @@ String params = "["
   "'label':'WLAN Password',"
   "'type':"+String(INPUTPASSWORD)+","
   "'default':''"
-  "},"
-  "{"
-  "'name':'relay',"
-  "'label':'Relay Pin',"
-  "'type':"+String(INPUTNUMBER)+","
-  "'min':1,'max':14,"
-  "'default':'14'"
-  "},"
-  "{"
-  "'name':'d0',"
-  "'label':'Green wire D0 Pin',"
-  "'type':"+String(INPUTNUMBER)+","
-  "'min':1,'max':14,"
-  "'default':'12'"
-  "},"
-  "{"
-  "'name':'d1',"
-  "'label':'White Wire D1 Pin',"
-  "'type':"+String(INPUTNUMBER)+","
-  "'min':1,'max':14,"
-  "'default':'13'"
-  "},"
-  "{"
-  "'name':'led',"
-  "'label':'Blue Wire (LED) Pin',"
-  "'type':"+String(INPUTNUMBER)+","
-  "'min':1,'max':14,"
-  "'default':'5'"
-  "},"
-  "{"
-  "'name':'buzzer',"
-  "'label':'Buzzer Wire Pin',"
-  "'type':"+String(INPUTNUMBER)+","
-  "'min':1,'max':14,"
-  "'default':'4'"
   "},"
   "{"
   "'name':'admn',"
@@ -181,23 +146,21 @@ boolean initWiFi() {
     boolean connected = false;
     WiFi.mode(WIFI_STA);
     Serial.print("SSID-");
-    Serial.println (conf.values[0]);
-
+    Serial.println(conf.values[0]);
     if (conf.values[0] != "") {
       WiFi.begin(conf.values[0].c_str(),conf.values[1].c_str());
- //     PubSubClient (client(conf.values[0].c_str(),conf.values[1].c_str());
- //       Serial.println (conf.values[0].c_str());
       uint8_t cnt = 0;
       while ((WiFi.status() != WL_CONNECTED) && (cnt<20)){
-      // fast flashing connecting to network  
+        // fast flashing connecting to network  
         digitalWrite(GREEN_LED_PIN, LOW);
         delay (5);
         digitalWrite(GREEN_LED_PIN, HIGH);
         delay (5);
+        delay(490);
       //  Serial.print(".");
         cnt++;
       }
-     // Serial.println();
+    //  Serial.println();
       if (WiFi.status() == WL_CONNECTED) {
         Serial.print("UIIP-");
         Serial.println(WiFi.localIP());
@@ -210,7 +173,6 @@ boolean initWiFi() {
     }
     return connected;
 }
-
 void handleRoot() {
   conf.handleFormRequest(&server);
   if (server.hasArg("SAVE")) {
@@ -226,6 +188,7 @@ void handleRoot() {
                                 conf.getString("continent").c_str(), 
                                 conf.getInt("amount"), 
                                 conf.getFloat("float"));
+ 
   }
 }
 
@@ -252,10 +215,7 @@ void setup() {
   pinMode (GREEN_LED_PIN, OUTPUT); // setup relay pin for output 
   pinMode (BEEP_PIN, OUTPUT); // setup relay pin for output 
   digitalWrite(GREEN_LED_PIN, HIGH);
-//  beep ();
-//  digitalWrite(BEEP_PIN, HIGH);
-// only connect wifi is web actice 
- if (webactive) { 
+
   initWiFi();
   char dns[30];
   sprintf(dns,"%s.local",conf.getApName());
@@ -263,17 +223,9 @@ void setup() {
     Serial.println("WEBUI-ON");
     pulseled (5);
   }
-  
-//  client.setBufferSize(512); // set buffer size for config doc                        
-//  client.setServer(USER_MQTT_SERVER, USER_MQTT_PORT);
-//  if (!client.connected()) 
-//  {
-//    reconnect();
-//  }
-  
   server.on("/",handleRoot);
   server.begin(80);
- };
+ 
 }
 
 void beep () {
@@ -483,7 +435,6 @@ void comparecode () {
   if (match==1) {
       Serial.println ("G");
       triggerrelay();
-     
       }
       else Serial.println ("99-B") ;  // here is where to add user 99 denied code
   strcpy(bufa,"");
@@ -515,10 +466,9 @@ void processcmd (int cmd) {
 void loop() {
   // put code here, to run repeatedly:
   keyread_loop();
-  // above
-  if (webactive) {
-      server.handleClient();
-      MDNS.update(); }
+  server.handleClient();
+  MDNS.update();
+  
 }
 
 volatile long reader1 = 0;
@@ -537,7 +487,7 @@ void keyread_loop() {
     incomingByte = Serial.read();
     processcmd(incomingByte);
      // say what you got:
-    Serial.print("I received: ");
+    Serial.print("RECV-");
     Serial.println(incomingByte, HEX);
   }
   // WIEGAND input section
