@@ -12,17 +12,21 @@ Commands:
 
 ESC - will clear the code buffer
 
+ENT - sends code after pressing keys (the max number of digits in a code is 11)
+
 
 Defaults:
 
 1 2 3 4 ENT - default admin code **this can be changed by the web ui but the admin code is always active
 
-RELAY GPIO14
-D0    GPIO12 - White wire
-D1    GPIO13 - Green wire
-LED   GPIO5  - Blue wire
-BEEP  GPIO4  - Yellow wire
+
+RELAY GPIO14 - D5 on Womos
+D0    GPIO12 - White wire - D7 on Womos
+D1    GPIO13 - Green wire - D6 on Womos
+LED   GPIO5  - Blue wire - D1 on Womos
+BEEP  GPIO4  - Yellow wire - D2 on Womos
 ** Please note these are GPIO pports and not the Wemos pin labels
+
 
 LED Indications:
 
