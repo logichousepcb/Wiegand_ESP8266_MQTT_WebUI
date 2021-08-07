@@ -4,7 +4,7 @@ This is a simple stand alone Wiegand keypad/RFID relay controller....let's add s
 This is a simple device that uses a Wemos D1 Mini and a Wiegand RFID reader with keypad.  Using a simple web based user interface you can connect to your network and set up user codes.
 
 
-Commands:
+Command:
 
 9 9 9 9 1 ENT - Will turn on the Wed user interface to configure the device
 
@@ -33,6 +33,28 @@ LED Indications:
 4 flashes = relay triggered
 5 flashes = WEB UI activated
 2 flashes = WEB UI deactivated
+fast flashing while connecting to network
+
+Serial data:
+
+Output:
+SSID-############ - returns name of network SSID trying to connect to 
+WEBUI-ON  - returns is the web user interface is active
+WEBUI-OFF - returns if the web user interface is turned off
+UIIP-__.__.__.__ returs the IP for the UI
+CODE-###########-nn-v  ## is the code entered (up to 11 digits)
+                       nn is the user number
+                       v  G (granted if the code is code and user has access on) 
+                          D (denied due to user access turned off) 
+                          B (bad code entered and will use user 99)
+                          C (command code entered)
+
+Input:
+r - trigger dealy to open door
+G - green light on
+g - green light off
+b - beep
+P-##-code  where ## is the user 01-10 and code is the access code up to 11 digits
 
 I have used a library from GerLech for the web UI.
 https://github.com/GerLech/WebConfig
