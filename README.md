@@ -24,5 +24,11 @@ LED   GPIO5  - Blue wire
 BEEP  GPIO4  - Yellow wire
 ** Please note these are GPIO pports and not the Wemos pin labels
 
+LED Indications:
+
+4 flashes = relay triggered
+5 flashes = WEB UI activated
+2 flashes = WEB UI deactivated
+
 I have used a library from GerLech for the web UI.
 https://github.com/GerLech/WebConfig
