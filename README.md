@@ -21,10 +21,15 @@ Defaults:
 
 
 RELAY GPIO14 - D5 on Womos
-D0    GPIO12 - White wire - D7 on Womos /0
+
+D0    GPIO12 - White wire - D7 on Womos 
+
 D1    GPIO13 - Green wire - D6 on Womos
+
 LED   GPIO5  - Blue wire - D1 on Womos
+
 BEEP  GPIO4  - Yellow wire - D2 on Womos
+
 ** Please note these are GPIO pports and not the Wemos pin labels
 
 
