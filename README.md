@@ -15,7 +15,7 @@ ESC - will clear the code buffer
 ENT - sends code after pressing keys (the max number of digits in a code is 11)
 
 
-Defaults:
+# Defaults:
 
 1 2 3 4 ENT - default admin code **this can be changed by the web ui but the admin code is always active
 
