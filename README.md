@@ -20,6 +20,8 @@ ENT - sends code after pressing keys (the max number of digits in a code is 11)
 1 2 3 4 ENT - default admin code **this can be changed by the web ui but the admin code is always active
 
 
+# Connections:
+
 RELAY GPIO14 - D5 on Womos
 
 D0    GPIO12 - White wire - D7 on Womos 
@@ -33,21 +35,30 @@ BEEP  GPIO4  - Yellow wire - D2 on Womos
 ** Please note these are GPIO pports and not the Wemos pin labels
 
 
-LED Indications:
+# LED Indications:
  
 4 flashes = relay triggered
+
 5 flashes = WEB UI activated
+
 2 flashes = WEB UI deactivated
+
 fast flashing while connecting to network
 
-Serial data:
+# Serial data:
 
 Output:
+
 SSID-############ - returns name of network SSID trying to connect to 
+
 WEBUI-ON  - returns is the web user interface is active
+
 WEBUI-OFF - returns if the web user interface is turned off
+
 UIIP-__.__.__.__ returs the IP for the UI
+
 RECV-__________ returns what device recieved via serial communication 
+
 CODE-###########-nn-v  ## is the code entered (up to 11 digits)
                        nn is the user number
                        v  G (granted if the code is code and user has access on) 
@@ -56,10 +67,15 @@ CODE-###########-nn-v  ## is the code entered (up to 11 digits)
                           C (command code entered)
 
 Input:
+
 r - trigger dealy to open door
+
 G - green light on
+
 g - green light off
+
 b - beep
+
 P-##-code  where ## is the user 01-10 and code is the access code up to 11 digits
 
 I have used a library from GerLech for the web UI.
