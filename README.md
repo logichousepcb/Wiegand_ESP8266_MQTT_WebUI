@@ -78,7 +78,9 @@ b - beep
 
 P-##-code  where ## is the user 01-10 and code is the access code up to 11 digits
 
+![GitHub Logo](https://github.com/logichousepcb/Wiegand_ESP8266_MQTT_WebUI/blob/main/Wiegand_ESP8266_MQTT_WebUI.JPG)
+
 I have used a library from GerLech for the web UI.
 https://github.com/GerLech/WebConfig
 
-![GitHub Logo](https://github.com/logichousepcb/Wiegand_ESP8266_MQTT_WebUI/blob/main/Wiegand_ESP8266_MQTT_WebUI.JPG)
+
