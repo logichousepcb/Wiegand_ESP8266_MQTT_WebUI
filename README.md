@@ -66,6 +66,14 @@ CODE-###########-nn-v  ## is the code entered (up to 11 digits)
                           B (bad code entered and will use user 99)
                           C (command code entered)
 
+ADD-usr#-%%%%%% reply when user # is added with code %%%%%%%
+
+ERROR-1 Cannot read configuration
+
+ERROR-2 Cannot write configuration
+
+ERROR There was an error with the config web ui interface
+
 Input:
 
 r - trigger dealy to open door
