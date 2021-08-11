@@ -66,12 +66,13 @@ UIIP-__.__.__.__ returs the IP for the UI
 
 RECV-__________ returns what device recieved via serial communication 
 
-CODE-###########-nn-v  ## is the code entered (up to 11 digits)\
-                       nn is the user number\
-                       v  G (granted if the code is code and user has access on)\ 
-                          D (denied due to user access turned off)\ 
-                          B (bad code entered and will use user 99)\
-                          C (command code entered)\
+CODE-###########-nn-v  
+## is the code entered (up to 11 digits)\
+nn is the user number\
+v  G (granted if the code is code and user has access on)\ 
+v  D (denied due to user access turned off)\ 
+v  B (bad code entered and will use user 99)\
+v  C (command code entered)\
 
 ADD-usr#-%%%%%% reply when user # is added with code %%%%%%%
 
