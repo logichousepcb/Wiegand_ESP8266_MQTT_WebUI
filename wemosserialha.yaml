@@ -1,0 +1,57 @@
+esphome:
+  name: wemosserialha
+  platform: ESP8266
+  board: d1_mini
+  includes:
+    - uart_read_line_sensor.h
+
+wifi:
+  ssid: "YOUR_SSID"
+  password: "YOUR_PASSWORD"
+
+ 
+captive_portal:
+
+# Enable logging
+logger:
+  level: VERBOSE #makes uart stream available in esphome logstream
+  baud_rate: 0 #disable logging over uart
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+mqtt:
+  broker: 192.168.1.130
+  username: ENTER_YOURS
+  password: ENTER_YOURS
+  
+web_server:
+  port: 80
+  
+
+uart:
+  id: uart_bus
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  baud_rate: 9600
+
+switch:
+  - platform: uart
+    name: "wiegandsend"
+    data: 'DataToSend'
+  - platform: uart
+    name: "wiegandrelay1"
+    data: 'RL1'
+    
+text_sensor:
+- platform: custom
+  lambda: |-
+    auto my_custom_sensor = new UartReadLineSensor(id(uart_bus));
+    App.register_component(my_custom_sensor);
+    return {my_custom_sensor};
+  text_sensors:
+    id: "uart_readline"
+    name: "wiegand1"
+  
