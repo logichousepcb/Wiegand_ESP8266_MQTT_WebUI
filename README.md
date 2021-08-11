@@ -97,6 +97,11 @@ P-##-code  where ## is the user 01-10 and code is the access code up to 11 digit
 
 ![GitHub Logo](https://github.com/logichousepcb/Wiegand_ESP8266_MQTT_WebUI/blob/main/Wiegand_ESP8266_MQTT_WebUI.JPG)
 
+#Home Assistant Integration
+I do plan to use a different API but for now Wemos 1 running my code passes Serial Data to Wemos 2 running this ESPHome Yaml to interact with HA.  You can find the YAML here as well.
+
+![GitHub Logo]( https://github.com/logichousepcb/Wiegand_ESP8266_MQTT_WebUI/blob/main/Home%20Assistant%20Dashboard%20Input.JPG)
+
 I have used a library from GerLech for the web UI.
 https://github.com/GerLech/WebConfig
 
