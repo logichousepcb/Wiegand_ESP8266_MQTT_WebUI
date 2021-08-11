@@ -3,18 +3,23 @@ This is a simple stand alone Wiegand keypad/RFID relay controller....let's add s
 
 This is a simple device that uses a Wemos D1 Mini and a Wiegand RFID reader with keypad.  Using a simple web based user interface you can connect to your network and set up user codes.
 
+It will flash green several times  as it first turns on.  Once blue, you can start using.
 
 Command:
 
-9 9 9 9 1 ENT - Will turn on the Wed user interface to configure the device
+You can always scan a valid tag to trigger opening.
 
-9 9 9 9 0 ENT - Will turn off the Web user interface
+(turned off at moment) 9 9 9 9 1 ENT - Will turn on the Wed user interface to configure the device
 
-9 9 9 9 7 ENT % * * * * ENT  - This will add/change user % (1-10 where 0 is for user 10) code to  * * * * whatever you entered - # # # # is the admin code.  Will blink 8 times waiting for user number then turn solid.  Once it is solid scan in the tag to complete add process
+(turned off at moment) 9 9 9 9 0 ENT - Will turn off the Web user interface
+
+9 9 9 9 7 ENT % * * * * - This will add/change user % (1-10 where 0 is for user 10) code to  * * * * whatever tag you scan.  Will blink 6 times waiting for user number then turn solid.  Once it is solid you have about 6 seconds to scan in the tag to complete add process.  ** note the admin cannot be changed at the keypad
+
+(working on) 9 9 9 9 8 ENT % * * * * - This will add/change user % to and entered keypad code
 
 ESC - will clear the code buffer
 
-ENT - sends code after pressing keys (the max number of digits in a code is 11)
+# # # # # # ENT - sends code after pressing keys (the max number of digits in a code is 11)
 
 
 # Defaults:
