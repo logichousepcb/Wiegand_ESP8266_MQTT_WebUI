@@ -485,19 +485,19 @@ void comparecode (String compUser) {
   Serial.print ("CODE-");
   Serial.print (compUser);
   Serial.print ("-");
-  if (compUser == "99992") {Serial.println ("99-C");
+/*  if (compUser == "99992") {Serial.println ("99-C");
                         conf.setValue("usr5","3555997");
                        
                         Serial.print ("ADD-");
                         Serial.print ("user5-");
                         Serial.print (conf.getValue("usr5"));
                         conf.writeConfig();
-                       };  
-  if (compUser == "99997") {Serial.println ("99-C");addrcv=true;};
-  if (compUser == "99991") {Serial.println ("99-C");webactive = true;webUI();};
-  if (compUser == "99990") {Serial.println ("99-C");pulseled (2); webactive = false;};
+                       };  */
+  if (compUser == "99997") {match=3;addrcv=true;};
+  if (compUser == "99991") {match=3;webactive = true;webUI();};
+  if (compUser == "99990") {match=3;pulseled (2); webactive = false;};
   if (compUser == conf.getValue("admn")) {Serial.print ("00-");
-      match = 1;
+      match = 2;
       strcpy(bufa,"");
       bufs = "00000";
   }
@@ -507,7 +507,7 @@ void comparecode (String compUser) {
       if (activeusr == '1') {
          
          match = 1; }; 
-  
+      match=match+1;
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -515,7 +515,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(1);  
       if (activeusr == '1') {
          match = 1;};
-   
+      match=match+1;
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -523,7 +523,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(2);  
       if (activeusr == '1') {
          match = 1;};
-   
+      match=match+1;   
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -531,7 +531,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(3);  
       if (activeusr == '1') {
          match = 1;};
-    
+      match=match+1;  
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -539,7 +539,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(4);  
       if (activeusr == '1') {
          match = 1;};
-  
+      match=match+1;
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -547,7 +547,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(5);  
       if (activeusr == '1') {
          match = 1;};
-  
+      match=match+1;
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -555,7 +555,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(6);  
       if (activeusr == '1') {
          match = 1;};
-   
+      match=match+1;  
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -563,7 +563,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(7);  
       if (activeusr == '1') {
          match = 1;};
-  
+      match=match+1;
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -571,7 +571,7 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(8);  
       if (activeusr == '1') {
          match = 1;};
- 
+      match=match+1;
       strcpy(bufa,"");
       bufs = "00000";
   } 
@@ -579,17 +579,32 @@ void comparecode (String compUser) {
       activeusr = activelist.charAt(9);  
       if (activeusr == '1') {
          match = 1;};
-  
+      match=match+1;
       strcpy(bufa,"");
       bufs = "00000";
   } // else Serial.print ("99-") ; 
-  if (match==1) {
+  switch (match) {
+    case 1:Serial.println ("D");
+           codercv = true;
+           break;
+    case 2:Serial.println ("G");
+           triggerrelay();
+           codercv = true;
+           break;
+    case 3:Serial.println ("99-C");
+           break;
+    case 0:Serial.println ("99-B");
+           codercv = true;
+           break;
+  }
+  
+/*  if (match==2) {
       Serial.println ("G");
       triggerrelay();
       codercv = true;
       }
-      else {//Serial.println ("B") ;
-             codercv = true;};  
+      else {Serial.println ("D") ;
+            codercv = true;};  */
   strcpy(bufa,"");
   bufs = "00000";
  }
