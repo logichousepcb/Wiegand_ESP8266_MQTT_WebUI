@@ -10,6 +10,8 @@ Command:
 
 9 9 9 9 0 ENT - Will turn off the Web user interface
 
+9 9 9 9 7 ENT % * * * * ENT  - This will add/change user % (1-10 where 0 is for user 10) code to  * * * * whatever you entered - # # # # is the admin code.  Will blink 8 times waiting for user number then turn solid.  Once it is solid scan in the tag to complete add process
+
 ESC - will clear the code buffer
 
 ENT - sends code after pressing keys (the max number of digits in a code is 11)
