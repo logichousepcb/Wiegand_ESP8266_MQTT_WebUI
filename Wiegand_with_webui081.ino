@@ -588,7 +588,8 @@ void comparecode (String compUser) {
       triggerrelay();
       codercv = true;
       }
-      else {Serial.println ("B") ;codercv = true;};  
+      else {//Serial.println ("B") ;
+             codercv = true;};  
   strcpy(bufa,"");
   bufs = "00000";
  }
